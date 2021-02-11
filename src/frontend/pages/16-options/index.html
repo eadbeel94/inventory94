@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.tags.title %></title>
+  <link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+  <%= htmlWebpackPlugin.tags.header %>
+  <!--Body section-->
+  <section id="sec_bodyO2" class="container-fluid mt-2 animate__animated animate__flipInX">
+    <div class="row mx-0">
+      
+      <div class="col-12 my-1">
+        <div class="card">
+          <div class="card-header text-center pt-4">
+            IMPORTAR/EXPORTAR BASE DE DATOS
+          </div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-6">
+                <section class="card border-0 m-1">
+
+                  <button id="btn_download" class="btn btn-primary p-3" style="font-family: poppins1; font-size: 20px;">
+                    <p class="mb-0">Para exportar la base de datos a excel</p>
+                    <p class="mb-0">solo pulse este boton</p>
+                    <i class="fas fa-cloud-download-alt pt-2" style="font-size: 100px;"></i>
+                  </button>
+
+                </section>
+              </div>
+              <div class="col-6">
+                <!--Drop files seccion-->
+                <section id="sec_dropfile" class="border-0 m-1" style="background-color: rgb(43,62,81);">
+                  <div class="card p-3 d-flex text-center h-100 justify-content-center" style=" font-family: poppins1; font-size: 20px; background-color: transparent;">
+                    <p class="mb-0">Para importar solo arrastra y suelta su documento</p>
+                    <p class="mb-0">.xls o .xlsx en esta area</p>
+                    <i class="fas fa-cloud-upload-alt pt-2 bg-transparent" style="font-size: 100px;"></i>
+                  </div>
+                </section>
+  
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="sec_bodyO3" class="container-fluid mt-2 animate__animated animate__flipInX" style="margin-bottom: 4rem;">
+    <div class="row mx-0">
+
+      <div class="col-12 my-1">
+        <form id="frm_impTable" enctype="multipart/form-data">
+          <div class="card">
+            <div class="card-header text-center pt-4">
+              EDITAR TABLA
+            </div>
+            <div id="sec_impTable" class="card-body">
+  
+              <table  class="table table-sm table-secondary table-bordered text-light table-hover">
+                <thead class="thead-light">
+                  <tr class="text-uppercase pt-1">
+                    <th scope="col">#</th>
+                    <th scope="col">VIN</th>
+                    <th scope="col">Vehicle</th>
+                    <th scope="col">Manufacturer</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Fuel</th>
+                    <th scope="col">Color</th>
+                  </tr>
+                </thead>
+                <tbody id="spc_tfill"></tbody>
+              </table>
+  
+            </div>
+  
+            <div class="card-footer text-center">
+              <button class="btn btn-outline-info w-25" type="submit" style="font-size: 18px;">
+                Guardar cambios <i class="fas fa-table pl-2"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <!--Modal section-->
+  <section id="sec_modal"></section>
+  <%= htmlWebpackPlugin.tags.footer %>
+</body>
+</html>

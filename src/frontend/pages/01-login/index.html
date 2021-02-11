@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.tags.title %></title>
+  <link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+  <div class="row mx-0">
+    <!--Left image-->
+    <div class="col-6 text-center d-none d-xl-block">
+      <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <img src="/img/login.png" alt="" class="animate__animated animate__pulse" style="height: 500px;">
+      </div>
+    </div>
+    <!--Form login-->
+    <div class="col-xl-5 col-12">
+
+      <section class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card p-4 px-5 bg-secondary animate__animated animate__fadeIn" style="width: 53vw;">
+          
+          <form id="sec_login" class="form-signin text-primary" action="<%= htmlWebpackPlugin.tags.IP %>/api/auth/" method="post">
+            <div class="card-title text-center mb-4 ">
+              <div class="text-light text-uppercase"><%= htmlWebpackPlugin.tags.title %></div>
+              <div class="text-primary">Inicia sesion <i class="fas fa-id-card-alt pl-2"></i></div>
+            </div>
+          
+            <div class="form-label-group">
+              <input id="inp_name" type="text" class="form-control" name="username" placeholder="username" required autofocus>
+              <label>Usuario</label>
+            </div>
+          
+            <div class="form-label-group">
+              <input id="inp_pass" type="password" class="form-control" name="password" placeholder="password">
+              <label>Contraseña</label>
+            </div>
+            <button class="btn btn-lg btn-outline-light btn-block mt-2" type="submit">
+              Iniciar sesion <i class="pl-1 fas fa-sign-in-alt"></i>
+            </button>
+
+            <div id="spc_alert" class="mt-2"></div>
+    
+            <p class="mt-5 text-muted text-center m-0" style="font-size: 14px;">Copyright © 2020. Todos los derechos reservados. </p>
+            <p class="text-muted text-center m-0" style="font-size: 12px;"><a href="/pages/about/" target="_blank" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Ir a acerca de...">Designed by EADBEEL 2020</a> </p>
+          </form>
+    
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

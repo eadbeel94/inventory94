@@ -1,0 +1,18 @@
+#sec_bodyM1{
+  min-height: 90vh; justify-content: center;
+}
+#sec_bodyM1 div.card.bg-transparent{
+  align-self: center;
+}
+#sec_bodyM1 div.col-xl div.card.border-0{
+  min-height: 440px;
+}
+#sec_bodyM1 div.card-header{
+  font-size: 22px; font-family: balo1; line-height: 1; padding-top: 1.5rem;
+}
+#sec_bodyM1 div.card-body{
+  justify-content: center;
+}
+#sec_bodyM1 div.card-body button i{
+  font-size: 120px;
+}

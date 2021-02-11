@@ -1,0 +1,49 @@
+#sec_tables li{
+  border-bottom: 1px solid #df691a; min-width: 130px; font-family: poppins1; 
+}
+#sec_tables li a{
+  font-size: calc(100vh * 0.01 + 7px);
+}
+#sec_tables section.input-group input{
+  min-width: 130px; flex: none; border: 1px solid #df691a; color: white; background-color: rgb(91,105,119); font-family: poppins1; font-size: calc(100vh * 0.01 + 7px); height: 38px;
+}
+#sec_tables div.input-group button{
+  padding: 0 0.6rem 0 0.4rem; width: 45px;
+}
+#sec_tables div.input-group i{
+  font-size: 20px;
+}
+#sec_tables #tab_0 input, #sec_tables #tab_10 input, #sec_tables #tab_7 input, #sec_tables #tab_13 input, #sec_tables #tab_14 input {
+  min-width: 275px; font-family: poppins1;
+}
+#sec_tables #tab_1 input{
+  min-width: 175px; font-family: poppins1; 
+}
+#sec_bodyO1 div.card-header, #sec_bodyO2 div.card-header, #sec_bodyO3 div.card-header{
+  font-family: balo1; font-size: calc(100vh * 0.01 + 12px); line-height: 1;
+}
+
+#sec_impTable td{
+  vertical-align: middle; padding: 0;
+}
+#sec_impTable th{
+  vertical-align: middle; padding-top: 0.7rem;
+}
+#sec_impTable th p{
+  margin-bottom: 0;
+}
+#sec_impTable{
+  overflow: scroll;
+}
+#sec_impTable tr.text-uppercase{
+  font-family: balo1; line-height: 0.9; font-size: 0.8rem;
+}
+#sec_impTable tbody{
+  font-family: poppins1; color: rgb(240,240,240);
+}
+#sec_impTable td input{
+  border-radius: 0; background: border-box; color: white; padding: 0.25rem; font-size: 0.85rem;
+}
+#sec_impTable td input:disabled{
+  border-radius: 0; color: white; opacity: 0.4;
+}

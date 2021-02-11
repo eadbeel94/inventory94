@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.tags.title %></title>
+  <link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+  <%= htmlWebpackPlugin.tags.header %>
+  <!--Filter section-->
+  <section id="sec_filter" class="container-fluid mt-2">
+    <div class="card">
+      <div class="row mx-0">
+
+        <div class="col-xl-6 col-12 mt-3 mb-2">
+          <form id="frm_filter">
+            <div class="form-row">
+              <div class="col-2 text-right p-2">
+                <i class="fas fa-filter pr-2"></i> Filter by:
+              </div>
+              <div class="col-4">
+                <label class="mr-sm-2 sr-only" for="inp_filter1">Filtro 1</label>
+                <select class="custom-select mr-sm-2" id="inp_filter1" required>
+                  <option value="" selected>choose...</option>
+                  <option value="vin">VIN</option>
+                  <option value="vehicle">Vehicle</option>
+                  <option value="manufacturer">Manufacturer</option>
+                  <option value="model">Model</option>
+                  <option value="type">Type</option>
+                  <option value="fuel">Fuel</option>
+                  <option value="color">Color</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="mr-sm-2 sr-only" for="inp_filter2">Filtro 2</label>
+                <select class="custom-select mr-sm-2" id="inp_filter2" required>
+                  <option value="" selected>Choose...</option>
+                </select>
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-outline-info btn-block">Apply</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-xl-6 col-12 mt-3 mb-2">
+          <form id="frm_search">
+            <div class="form-row">
+
+              <div class="col-3 p-2 text-right">
+                <i class="fas fa-search pr-2"></i> Search by id: 
+              </div>
+              <div class="col-7">
+                <input type="search" class="form-control" placeholder="Insert your id" required>
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-outline-info btn-block">Apply</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!--Table section-->
+  <section id="sec_table" class="container-fluid">
+    <div class="card mt-2 p-2">
+
+      <table  class="table table-sm table-secondary table-bordered text-light table-hover">
+        <thead class="thead-light">
+          <tr class="text-uppercase pt-1">
+            <th scope="col">#</th>
+            <th scope="col">VIN</th>
+            <th scope="col">Vehicle</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Model</th>
+            <th scope="col">Type</th>
+            <th scope="col">Fuel</th>
+            <th scope="col">Color</th>
+          </tr>
+        </thead>
+        <tbody id="spc_tfill" class="animate__animated animate__fadeIn">
+        </tbody>
+      </table>
+
+      <section id="sec_spinner" class="h-100">
+        <div class="h-25"></div>
+        <div class="w-100 justify-content-center" style="display: flex;">
+          <div class="spinner-border text-primary align-self-center" role="status" style="width: 200px; height: 200px; font-size: 100px;">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div class="text-center text-primary mt-3" style="font-size: 25px; font-family: 'balo1';">
+          Please wait...
+        </div>
+      </section>
+  
+    </div>
+  </section>
+  <!--Buttons section-->
+  <section id="sec_btnpage" class="text-center fixed-bottom" role="group" style="margin-bottom: 60px;">
+    <div class="row mx-0">
+
+      <div class="col-4 offset-4">
+        <div class="btn-group"  aria-label="Basic example">
+          <span style="line-height: 2.3;" class="text-primary">PAG: </span>
+          <button id="btn_minus" type="button" class="form-control btn btn-outline-primary ml-2" style="width: 40px;">
+            <i id="btn_minus" class="fas fa-minus-circle"></i>
+          </button>
+          <input id="inp_page" type="number" class="form-control text-center" value="1" style="width: 75px;">
+          <button id="btn_plus" type="button" class="form-control btn btn-outline-primary" style="width: 40px;">
+            <i id="btn_plus" class="fas fa-plus-circle"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div>
+          <span>Total: </span>
+          <span id="lbl_count"> </span>
+          <span>registros </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="sec_modal"></section>
+  <%= htmlWebpackPlugin.tags.footer %>
+</body>
+</html>

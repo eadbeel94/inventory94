@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.tags.title %></title>
+  <link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+  <%= htmlWebpackPlugin.tags.header %>
+  <!--Body section-->
+  <section id="sec_bodyM1" class="container py-2 p-0 d-flex">
+    <div class="card bg-transparent w-100">
+      <div class="row" id="sec_buttons" >
+        <!--Button for acces to diferent API section-->
+        <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
+          <div class="card border-0 rounded-0 my-2 text-primary">
+            <div class="card-header text-center">
+                <p class="mb-0">VER</p><p class="mb-0">TABLA</p>
+            </div>
+            <div class="card-body text-center p-0 d-flex">
+              <button onclick="window.open(`/pages/table/?ed=ro`, '_self');" 
+                      class="btn btn-outline-primary rounded-0 w-100"                       
+                      data-toggle="tooltip" 
+                      data-placement="right" 
+                      title="Revisar elementos de la tabla" >
+                <i class="fas fa-th-list"></i>
+              </button>
+            </div>
+            <div class="card-footer text-center">
+              -
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
+          <div class="card border-0 rounded-0 my-2 text-success">
+            <div class="card-header text-center">
+                <p class="mb-0">AGREGAR</p><p class="mb-0">NUEVO</p>
+            </div>
+            <div class="card-body text-center p-0 d-flex">
+              <button onclick="window.open(`/pages/article/?ed=nw`, '_self');" 
+                      class="btn btn-outline-success rounded-0 w-100"                       
+                      data-toggle="tooltip" 
+                      data-placement="right" 
+                      title="Agregar nuevo elemento" disabled>
+                <i class="fas fa-folder-plus"></i>
+              </button>
+            </div>
+            <div class="card-footer text-center">
+              -
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
+          <div class="card border-0 rounded-0 my-2 text-danger">
+            <div class="card-header text-center">
+                 <p class="mb-0">EDITAR</p><p class="mb-0">TABLA</p>
+            </div>
+            <div class="card-body text-center p-0 d-flex">
+              <button onclick="window.open(`/pages/table/?ed=rw`, '_self');" 
+                      data-toggle="tooltip" data-placement="right" 
+                      title="Editar elementos de la tabla"
+                      class="btn btn-outline-danger rounded-0 w-100" disabled>
+                <i class="fas fa-table"></i>
+              </button>
+            </div>
+            <div class="card-footer text-center">
+              -
+            </div>
+          </div>
+        </div>
+
+        <div class="offset-xl-0 col-xl col-lg-4 offset-lg-2 col-md-4 offset-md-2 col-6 px-2 animate__animated animate__flipInY">
+          <div class="card border-0 rounded-0 my-2 text-warning">
+            <div class="card-header text-center">
+              <p class="mb-0">CONFIGURAR</p> <p class="mb-0">OPCIONES</p> 
+            </div>
+            <div class="card-body text-center p-0 d-flex">
+              <button onclick="window.open(`/pages/options`, '_self');" 
+                      data-toggle="tooltip" 
+                      data-placement="left" 
+                      title="Editar las opciones de autocompletado, importar y exportar DB" 
+                      class="btn btn-outline-warning rounded-0 w-100" disabled>
+                <i class="fas fa-tools"></i>
+              </button>
+            </div>
+            <div class="card-footer text-center">
+              -
+            </div>
+          </div>
+        </div>
+
+        <div class="offset-md-0 offset-3 col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY">
+          <div class="card border-0 rounded-0 my-2 text-info">
+            <div class="card-header text-center">
+              <p class="mb-0">ADMINISTRAR</p> <p class="mb-0">USUARIOS</p> 
+            </div>
+            <div class="card-body text-center p-0 d-flex">
+              <button onclick="window.open(`/pages/users`, '_self');" 
+                      data-toggle="tooltip" 
+                      data-placement="left" 
+                      title="Agregar, editar o eliminar usuarios" 
+                      class="btn btn-outline-info rounded-0 w-100" disabled>
+                <i class="fas fa-users-cog"></i>
+              </button>
+            </div>
+            <div class="card-footer text-center">
+              -
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <%= htmlWebpackPlugin.tags.footer %>
+</body>
+</html>

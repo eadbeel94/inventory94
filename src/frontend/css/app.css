@@ -1,0 +1,174 @@
+/*------------------------------------ FONTS ------------------------------------*/
+  @font-face {
+    font-family: 'poppins1'; src: url('../font/poppins1.ttf');
+  }
+  @font-face {
+    font-family: 'balo1'; src: url('../font/baloo1.ttf');
+  }
+  @font-face {
+    font-family: 'yanone1'; src: url('../font/yanone1.ttf');
+  }
+/*------------------------------------ SPECIAL STYLES ------------------------------------*/
+  ::-webkit-scrollbar {
+    width: 10px; height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #abb6c2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #df691a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(52,62,64);
+  }
+  input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
+/*------------------------------------ COMMON STYLES ------------------------------------*/
+  #sec_navbar{
+    font-family: poppins1;
+  }
+  #sec_navbar a.navbar-text{
+    font-size: 22px; font-family: yanone1; padding-top: 0.75rem;
+  }
+  #sec_navbar a img{
+    max-width: 50px;
+  }
+  #sec_navbar div.btn-group{
+    width: 150px;
+  }
+  #sec_navbar button p{
+    font-size: 14px; 
+  }
+  #sec_navbar button i{
+    font-size: 18px; 
+  }
+  #sec_navbar div.dropdown-menu{
+    width: 200px;
+  }
+  #sec_navbar div.dropdown-menu p{
+    font-size: 14px;
+  }
+
+  #sec_filter div.card{
+    background-color: rgb(70,100,134);
+  }
+  #sec_filter div.form-row div.text-right{
+    font-size: 14px; font-family: balo1; line-height: 2;
+  }
+  #sec_filter div.form-row select, #sec_filter div.form-row input{
+    font-family: poppins1; font-size: 15px;
+  }
+  #sec_filter div.form-row button{
+    font-size: 14px; font-family: balo1; padding-top: 0.75rem; line-height: 1; height: calc(1.5em + 0.75rem + 2px);
+  }
+
+  #sec_table table{
+    font-size: 13px;
+  }
+  #sec_table td{
+    vertical-align: middle; 
+  }
+  #sec_table th{
+    vertical-align: middle; padding-top: 0.7rem;
+  }
+  #sec_table th p{
+    margin-bottom: 0;
+  }
+  #sec_table div.card{
+    background-color: rgb(70,100,134); height: 68vh; overflow: scroll;
+  }
+  #sec_table tr.text-uppercase{
+    font-family: balo1; line-height: 0.9; font-size: 16px;
+  }
+  #sec_table tbody{
+    font-family: poppins1; color: rgb(240,240,240);
+  }
+
+  #sec_images section{
+    display: flex; align-items: center; height: 75%;
+  }
+
+  #sec_footer span.col-lg-5.text-primary{
+    font-size: 1.7rem; font-family: yanone1; line-height: 1;
+  }
+  #sec_footer span.col-lg-7.text-light{
+    font-family: poppins1; font-size: 0.8rem; padding-top: 0.25rem;
+  }
+/*------------------------------------ COMMON  ARTICLE STYLES ------------------------------------*/
+  .select-editable {
+    position:relative; border:solid 1px transparent;
+  }
+  .select-editable select {
+    position:absolute; top:0px; left:0px; border:none; margin:0; width: 100%; height: calc(100vh * 0.025 + 15px); font-size: 2.1vh;
+  }
+  .select-editable input {
+    position:absolute; top:0px; left:0px; width: calc(100% - 17px); padding:1px; border:none; height: calc(100vh * 0.025 + 15px);
+  }
+  .select-editable select:focus, .select-editable input:focus {
+    outline:none;
+  }
+/*
+  #sec_bodyA2 label{
+    font-family: balo1; padding-top: 0.5rem; font-size: 1.9vh;
+  }
+  #sec_bodyA2 input{
+    font-family: poppins1; padding-left: 1rem; font-size: 1.9vh; height: calc(100vh * 0.025 + 15px);
+  }
+  #sec_bodyA2 textarea{
+    font-family: poppins1; padding-left: 1rem; font-size: 1.9vh;
+  }
+  #sec_bodyA2 option{
+    text-transform: uppercase;
+  }
+  #sec_bodyA2 div.btn-group button{
+    font-size: 2.8vh; width: 400px;
+  }
+  #sec_bodyA2 #lbl_images{
+    font-size: 2.25vh; padding-top: 0.75rem;
+  }
+  #sec_bodyA2 #lbl_images::after{
+    padding-top: 0.75rem;
+  }
+  h3{
+    font-size: 1.55rem;
+  }
+*/
+
+.modalT1 .modal-title, .modalT2 .modal-title{
+  font-family: balo1; font-size: 19px; line-height: 1;
+}
+.modalT1 .modal-body{
+  font-family: poppins1; font-size: 17px; color: white;
+}
+.modalT1 .modal-footer button:nth-child(1){
+  color: var(--white); background-color: var(--info); border-color: var(--info); font-family: balo1; padding-top: 1rem; line-height: 1;
+}
+.modalT1 .modal-footer button:nth-child(1):hover{
+  background-color: #3bb4d8; border-color: #31b0d5;
+}
+.modalT1 .modal-footer button:nth-child(2){
+  color: var(--white); background-color: var(--danger); border-color: var(--danger); font-family: balo1; padding-top: 1rem; line-height: 1;
+}
+.modalT1 .modal-footer button:nth-child(2):hover{
+  background-color: #d23430; border-color: #c9302c;
+}
+
+.modalT2 .modal-body{
+  font-family: poppins1; font-size: 17px; color: tomato;
+}
+.modalT2 .modal-footer button:nth-child(1){
+  color: var(--white); background-color: var(--danger); border-color: var(--danger); font-family: balo1; padding-top: 1rem; line-height: 1;
+}
+.modalT2 .modal-footer button:nth-child(1):hover {
+  background-color: #d23430; border-color: #c9302c;
+}
+.modalT2 .modal-footer button:nth-child(2){
+  color: var(--white); background-color: var(--light); border-color: var(--light); font-family: balo1; padding-top: 1rem; line-height: 1;
+}
+.modalT2 .modal-footer button:nth-child(2):hover {
+  background-color: #94a3b2; border-color: #8d9dad;
+}

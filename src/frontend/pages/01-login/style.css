@@ -1,0 +1,18 @@
+#sec_login div.text-light{
+  font-size: 50px; font-family: yanone1;
+}
+#sec_login div.text-primary{
+  font-family: balo1; font-size: 32px; line-height: 1;
+}
+#sec_login div.form-label-group{
+  font-family: poppins1;
+}
+#sec_login div.form-label-group input{
+  font-size: 26px; border-radius: 0.6rem; padding-left: 1rem;
+}
+#sec_login div.form-label-group label{
+  font-size: 20px;
+}
+#sec_login button{
+  font-size: 24px;
+}
