@@ -1,18 +1,18 @@
-const { Schema, model } = require('mongoose');              //Call methods schema and model from mongoose for create tables that after
+const { Schema, model } = require('mongoose');            //Call methods schema and model from mongoose for create tables that after
 
 //------------------------------------- Product schema -------------------------------------//
 
-const userschema = new Schema({                           //Creo una tabla de nombre UserSchema
-  name: { type: String, required: true },                 //Creo una columna llamada name
+const userschema = new Schema({                           //Create a table for storage multiple user account
+  name: { type: String, required: true },                 
   fullname: { type: String },
   phone: { type: String },
-  password: { type: String, required: true },             //Creo una columna llamada password
+  password: { type: String, required: true },             
   level: { type: Number, required: true },
   depts: { type: Array, required: true },
   date: { type: String }
 });
 
-const rowschema = new Schema({
+const rowschema = new Schema({                            //Create a table for storage multiple vehicles
   vehicle: { type: String, required: true },
   color: { type: String },
   fuel: { type: String },

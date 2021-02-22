@@ -1,9 +1,17 @@
+/** @namespace Backend/route/article */
+
 const router = require("express").Router();                         //Call dependencies needed
 const { Row } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
-
-//---------------------------------- READ ARTICLE ----------------------------------//
-
-router.get('/api/article/allfields', async (req,res)=>{
+/**
+ * Get all keys from DB collection
+ *
+ * @name allfields
+ * @path {GET} /api/article/allfields
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @memberof Backend/route/article
+ */
+router.get('/allfields', async (req,res)=>{
   let status= false;
   let items= [];
   try {
@@ -15,8 +23,17 @@ router.get('/api/article/allfields', async (req,res)=>{
   } catch (err) { console.log(err); status= false; };
   res.json({ status, items });
 });
-
-router.get('/api/article/find',async (req,res)=>{
+/**
+ * Get article using vin value
+ *
+ * @name find
+ * @path {GET} /api/article/find
+ * @query {String} [vin] get vin value from client interface
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @memberof Backend/route/article
+ */
+router.get('/find',async (req,res)=>{
   let status = false;
   let item = [];
   try {
@@ -28,10 +45,16 @@ router.get('/api/article/find',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status, item });
 });
-
-//---------------------------------- ADD ARTICLE ----------------------------------//
-
-router.post('/api/article/add',async (req,res)=>{
+/**
+ * Add article in database
+ *
+ * @name add
+ * @path {POST} /api/article/add
+ * @body {Object} Include all car's fileds for after saved into database
+ * @response {boolean} status if element storage successfully
+ * @memberof Backend/route/article
+ */
+router.post('/add',async (req,res)=>{
   let status= false;
   try {
     if( req.session.hasOwnProperty('passport') ){
@@ -44,10 +67,16 @@ router.post('/api/article/add',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status });
 });
-
-//---------------------------------- EDIT ARTICLE ----------------------------------//
-
-router.post('/api/article/edit',async (req,res)=>{
+/**
+ * Edit article in database
+ *
+ * @name edit
+ * @path {POST} /api/article/edit
+ * @body {Object} Include all car's fileds for after editer into database
+ * @response {boolean} status if element edited successfully
+ * @memberof Backend/route/article
+ */
+router.post('/edit',async (req,res)=>{
   let status= false;
   try {
     if( req.session.hasOwnProperty('passport') ){
@@ -66,9 +95,16 @@ router.post('/api/article/edit',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status });
 });
-
-//---------------------------------- DELETE ARTICLE ----------------------------------//
-router.delete('/api/article/delete',async (req,res)=>{
+/**
+ * Delete an article in database
+ *
+ * @name delete
+ * @path {DELETE} /api/article/delete
+ * @query {String} [vin] get vin value from client interface
+ * @response {boolean} status if element delete successfully
+ * @memberof Backend/route/article
+ */
+router.delete('/delete',async (req,res)=>{
   let status= false;
   try {
     if( req.session.hasOwnProperty('passport') ){

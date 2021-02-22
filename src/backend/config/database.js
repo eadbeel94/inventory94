@@ -1,6 +1,6 @@
-const { connect } = require('mongoose');                              //Call mongoose module for create connection with mongodb
+const { connect } = require('mongoose');                  //Call connect method with URI and configuration   
 
-connect('mongodb+srv://Adbeel:t8AFO1MnrwGeHi5M@cluster0-0n1tc.mongodb.net/inventory?retryWrites=true&w=majority',{                       //Call connect method with URI and configuration             
+connect(process.env.MONGO_DB_URI,{                                  
   useNewUrlParser: true,                                          
   useUnifiedTopology: true,
   useFindAndModify: false,

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/backend/index.js",
     "dev1": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "dev2": "cross-env NODE_ENV=development nodemon src/backend/index.js --watch src/backend",
+    "dev2": "nodemon src/backend/index.js --watch src/backend",
     "dev3": "run-p dev1 dev2",
     "start": "node src/backend/index.js",
     "build2": "cross-env NODE_ENV=production webpack -p",
@@ -36,6 +36,7 @@
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "docdash": "^1.2.0",
+    "dotenv": "^8.2.0",
     "faker": "^5.1.0",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",

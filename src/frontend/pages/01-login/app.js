@@ -49,12 +49,18 @@ const IP= process.env.NODE_ENV === 'production' ? '' : `http://localhost:3300`;
  */
 document.addEventListener("DOMContentLoaded", () => {
   fetch(`${IP}/api/auth/status`)                              
-  .then(res0 => {return res0.json()})
-  .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
-  .then(data => {       
-    if( data.hasOwnProperty('message') && data.status )
-      alertShow( Alert , 'spc_alert' , 2 * 1000 , data.message );
-  });
+    .then(res0 => {return res0.json()})
+    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
+    .then(data => {    
+      if( data.hasOwnProperty('message') && data.status )
+        alertShow( Alert , 'spc_alert' , 2 * 1000 , data.message );
+      if( data.once )
+        modalShow( Modal, "sec_modal", 1, mBodyBTN1(`
+        You can access this app entering <strong class="text-info">guest</strong> like user and password or
+        <br/>
+        If you wanna see all features you can access with <strong class="text-info">admin</strong> like user and password 
+        `) );
+    });
 });
 /**
  * autocomplete invite pass field
@@ -62,6 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
  * @memberof Frontend/01-login
  */
 inp_name.addEventListener('keyup', () =>{                     //autocomplete invite pass field
-  if((String(inp_name.value)).toLowerCase() == 'invitado')
-    inp_pass.value = 'invitado';
+  if((String(inp_name.value)).toLowerCase() == 'guest')
+    inp_pass.value = 'guest';
 });

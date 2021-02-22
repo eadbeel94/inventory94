@@ -1,8 +1,8 @@
 const getError= ( err ) => {
-  let line= ""
+  let line= "";
   if( err ){
     if( err.hasOwnProperty('stack') && err.hasOwnProperty('message') ){
-      line= ((String(err.stack).split(`\n`))[1]).split(':');
+      line= ((String(err.stack).split(`\n`))[1]).split(':').toString();
       line=`${line[2]}-${line[3]} -> ${err.message}`;
     }else
       line= "NaN: " + err.toString();

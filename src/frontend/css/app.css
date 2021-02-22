@@ -79,7 +79,7 @@
     margin-bottom: 0;
   }
   #sec_table div.card{
-    background-color: rgb(70,100,134); height: 68vh; overflow: scroll;
+    background-color: rgb(70,100,134); height: 66vh; overflow: scroll;
   }
   #sec_table tr.text-uppercase{
     font-family: balo1; line-height: 0.9; font-size: 16px;

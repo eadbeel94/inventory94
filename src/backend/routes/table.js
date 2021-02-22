@@ -1,7 +1,20 @@
+/** @namespace Backend/route/table */
+
 const router = require("express").Router();                         //Call dependencies needed
 const { Row } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
-
-router.get('/api/table/row',async (req,res)=>{
+/**
+ * Get 20 articles.
+ *
+ * @name row
+ * @path {GET} /api/table/row
+ * @query {String} [page] select group based an page number
+ * @query {String} [ed] check if url include 'ro(read only)' value
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @response {number} count total count into database
+ * @memberof Backend/route/table
+ */
+router.get('/row',async (req,res)=>{
   let status= false;
   let show= false;
   let items= [];
@@ -19,8 +32,18 @@ router.get('/api/table/row',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status, items , count });
 });
-
-router.get('/api/table/filter1',async (req,res)=>{
+/**
+ * Get all types same filter.
+ *
+ * @name filter1
+ * @path {GET} /api/table/filter1
+ * @query {String} [ed] check if url include 'ro(read only)' value
+ * @query {String} [a] get filter criterion
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @memberof Backend/route/table
+ */
+router.get('/filter1',async (req,res)=>{
   let status = false;
   let show= false;
   let items = [];
@@ -33,10 +56,22 @@ router.get('/api/table/filter1',async (req,res)=>{
       }
     }
   } catch (err) {console.log(err); status= false; };
-  res.json({status,items});
+  res.json({ status , items });
 });
-
-router.get('/api/table/filter2',async (req,res)=>{
+/**
+ * Get all articles based filter criterion.
+ *
+ * @name filter2
+ * @path {GET} /api/table/filter2
+ * @query {String} [ed] check if url include 'ro(read only)' value
+ * @query {String} [f1] get filter criterion
+ * @query {String} [f2] get filter type
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @response {number} count total count into database
+ * @memberof Backend/route/table
+ */
+router.get('/filter2',async (req,res)=>{
   let status = false;
   let show= false;
   let items = [];
@@ -54,8 +89,19 @@ router.get('/api/table/filter2',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status , items , count });
 });
-
-router.get('/api/table/search1',async (req,res)=>{
+/**
+ * Get all articles based filter criterion.
+ *
+ * @name search1
+ * @path {GET} /api/table/search1
+ * @query {String} [ed] check if url include 'ro(read only)' value
+ * @query {String} [s] get search string received from client
+ * @response {boolean} status if query database complety successfully
+ * @response {Object} items getting from database query result
+ * @response {number} count total count into database
+ * @memberof Backend/route/table
+ */
+router.get('/search1',async (req,res)=>{
   let status = false;
   let show= false;
   let items = [];

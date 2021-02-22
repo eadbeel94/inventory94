@@ -23,25 +23,25 @@
           <form id="sec_login" class="form-signin text-primary" action="<%= htmlWebpackPlugin.tags.IP %>/api/auth/" method="post">
             <div class="card-title text-center mb-4 ">
               <div class="text-light text-uppercase"><%= htmlWebpackPlugin.tags.title %></div>
-              <div class="text-primary">Inicia sesion <i class="fas fa-id-card-alt pl-2"></i></div>
+              <div class="text-primary">Sign in <i class="fas fa-id-card-alt pl-2"></i></div>
             </div>
           
             <div class="form-label-group">
               <input id="inp_name" type="text" class="form-control" name="username" placeholder="username" required autofocus>
-              <label>Usuario</label>
+              <label>username</label>
             </div>
           
             <div class="form-label-group">
               <input id="inp_pass" type="password" class="form-control" name="password" placeholder="password">
-              <label>Contraseña</label>
+              <label>password</label>
             </div>
             <button class="btn btn-lg btn-outline-light btn-block mt-2" type="submit">
-              Iniciar sesion <i class="pl-1 fas fa-sign-in-alt"></i>
+              connect <i class="pl-1 fas fa-sign-in-alt"></i>
             </button>
 
             <div id="spc_alert" class="mt-2"></div>
     
-            <p class="mt-5 text-muted text-center m-0" style="font-size: 14px;">Copyright © 2020. Todos los derechos reservados. </p>
+            <p class="mt-5 text-muted text-center m-0" style="font-size: 14px;">Copyright © 2020. All right reserved. </p>
             <p class="text-muted text-center m-0" style="font-size: 12px;"><a href="/pages/about/" target="_blank" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Ir a acerca de...">Designed by EADBEEL 2020</a> </p>
           </form>
     
@@ -50,5 +50,6 @@
 
     </div>
   </div>
+  <section id="sec_modal"></section>
 </body>
 </html>

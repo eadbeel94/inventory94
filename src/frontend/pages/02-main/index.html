@@ -16,14 +16,14 @@
         <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
           <div class="card border-0 rounded-0 my-2 text-primary">
             <div class="card-header text-center">
-                <p class="mb-0">VER</p><p class="mb-0">TABLA</p>
+                <p class="mb-0">SHOW</p><p class="mb-0">TABLE</p>
             </div>
             <div class="card-body text-center p-0 d-flex">
               <button onclick="window.open(`/pages/table/?ed=ro`, '_self');" 
                       class="btn btn-outline-primary rounded-0 w-100"                       
                       data-toggle="tooltip" 
                       data-placement="right" 
-                      title="Revisar elementos de la tabla" >
+                      title="Check all elements in a table" >
                 <i class="fas fa-th-list"></i>
               </button>
             </div>
@@ -36,14 +36,14 @@
         <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
           <div class="card border-0 rounded-0 my-2 text-success">
             <div class="card-header text-center">
-                <p class="mb-0">AGREGAR</p><p class="mb-0">NUEVO</p>
+                <p class="mb-0">ADD</p><p class="mb-0">NEW ITEM</p>
             </div>
             <div class="card-body text-center p-0 d-flex">
               <button onclick="window.open(`/pages/article/?ed=nw`, '_self');" 
                       class="btn btn-outline-success rounded-0 w-100"                       
                       data-toggle="tooltip" 
                       data-placement="right" 
-                      title="Agregar nuevo elemento" disabled>
+                      title="Add new element" disabled>
                 <i class="fas fa-folder-plus"></i>
               </button>
             </div>
@@ -56,12 +56,12 @@
         <div class="col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY" >
           <div class="card border-0 rounded-0 my-2 text-danger">
             <div class="card-header text-center">
-                 <p class="mb-0">EDITAR</p><p class="mb-0">TABLA</p>
+                 <p class="mb-0">EDIT</p><p class="mb-0">ELEMENTS</p>
             </div>
             <div class="card-body text-center p-0 d-flex">
               <button onclick="window.open(`/pages/table/?ed=rw`, '_self');" 
                       data-toggle="tooltip" data-placement="right" 
-                      title="Editar elementos de la tabla"
+                      title="Edit any element into table"
                       class="btn btn-outline-danger rounded-0 w-100" disabled>
                 <i class="fas fa-table"></i>
               </button>
@@ -75,13 +75,13 @@
         <div class="offset-xl-0 col-xl col-lg-4 offset-lg-2 col-md-4 offset-md-2 col-6 px-2 animate__animated animate__flipInY">
           <div class="card border-0 rounded-0 my-2 text-warning">
             <div class="card-header text-center">
-              <p class="mb-0">CONFIGURAR</p> <p class="mb-0">OPCIONES</p> 
+              <p class="mb-0">OPTIONS </p> <p class="mb-0">CONFIGURATOR</p> 
             </div>
             <div class="card-body text-center p-0 d-flex">
               <button onclick="window.open(`/pages/options`, '_self');" 
                       data-toggle="tooltip" 
                       data-placement="left" 
-                      title="Editar las opciones de autocompletado, importar y exportar DB" 
+                      title="Edit autocomplete optiones, import and export DB" 
                       class="btn btn-outline-warning rounded-0 w-100" disabled>
                 <i class="fas fa-tools"></i>
               </button>
@@ -95,13 +95,13 @@
         <div class="offset-md-0 offset-3 col-xl col-lg-4 col-md-4 col-6 px-2 animate__animated animate__flipInY">
           <div class="card border-0 rounded-0 my-2 text-info">
             <div class="card-header text-center">
-              <p class="mb-0">ADMINISTRAR</p> <p class="mb-0">USUARIOS</p> 
+              <p class="mb-0">USER</p> <p class="mb-0">MANAGE</p> 
             </div>
             <div class="card-body text-center p-0 d-flex">
               <button onclick="window.open(`/pages/users`, '_self');" 
                       data-toggle="tooltip" 
                       data-placement="left" 
-                      title="Agregar, editar o eliminar usuarios" 
+                      title="Create, Read, Update and Delete any user" 
                       class="btn btn-outline-info rounded-0 w-100" disabled>
                 <i class="fas fa-users-cog"></i>
               </button>
@@ -115,6 +115,7 @@
       </div>
     </div>
   </section>
+  <section id="sec_modal"></section>
   <%= htmlWebpackPlugin.tags.footer %>
 </body>
 </html>

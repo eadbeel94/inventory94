@@ -1,7 +1,8 @@
 /** @namespace Frontend/02-welcome */
 
 import './style.css';
-
+//import 'bootstrap.native/dist/bootstrap-native.esm.js';
+//import Dropdown from 'bootstrap.native/dist/components/dropdown-native.esm.js';
 /** 
  * Call Modal class from boostrap native
  * @const {class} Modal
