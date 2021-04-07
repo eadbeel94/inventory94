@@ -6,7 +6,7 @@ This app can do:
 - Managment user accounts
 - Generate random values to fill forms
 
-![](/img/readme.png)
+![](/src/frontend/img/readme.png)
 
 # Project documentation structure
 - Frontend (views)
