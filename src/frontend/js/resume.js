@@ -9,3 +9,4 @@ import 'bootstrap.native/dist/bootstrap-native.esm.js';
 import '../img/favicon.ico';
 import '../img/login.png';
 import '../img/nav.png';
+import '../img/readme.png';
