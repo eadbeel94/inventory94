@@ -7,6 +7,8 @@ This app can do:
 - Generate random values to fill forms
 
 ![](/src/frontend/img/readme.png)
+
+Web page example link: [inventory94](https://inventory94.herokuapp.com/)
 <!--
 # Project documentation structure
 - Frontend (views)
@@ -64,7 +66,7 @@ This app can do:
 
 # About developer
 - [Adbeel Estrada Portfolio](https://eadbeel94.web.app/)
-- [Adbeel Estrada Github](https://github.com/eadbeel94?tab=repositories)
 - [Adbeel Estrada Linkedin](https://www.linkedin.com/in/adbeel-estrada-9a332b181/)
 - [Adbeel Estrada Youtube](https://www.youtube.com/channel/UCKpR_x5WgtNCXx0oE2GuNag)
 - [Adbeel Estrada Facebook](https://www.facebook.com/Z1K3C)
+<!-- [Adbeel Estrada Github](https://github.com/eadbeel94?tab=repositories)-->
