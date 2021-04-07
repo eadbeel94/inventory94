@@ -7,7 +7,7 @@ This app can do:
 - Generate random values to fill forms
 
 ![](/src/frontend/img/readme.png)
-
+<!--
 # Project documentation structure
 - Frontend (views)
   - [login](/doc/Frontend_01-login.html)
@@ -28,7 +28,7 @@ This app can do:
   - [login](/doc/Backend_route_login.html)
   - [options](/doc/Backend_route_options.html)
   - [table](/doc/Backend_route_options.html)
-
+-->
 # Used Technologies
 - Frontend
   - HTML5
