@@ -23,7 +23,13 @@ import Modal from 'bootstrap.native/dist/components/modal-native.esm.js';
  * @property {Function} messWait show common message please wait
  * @memberof Frontend/17-users
  */
-const { modalShow , mBodyBTN1 , mBodyBTN2 , messWait, genUsers } = require('../../js/service.js');
+const { 
+  modalShow, 
+  mBodyBTN1, 
+  mBodyBTN2, 
+  messWait,
+  genUsers 
+} = require('../../js/service.js');
 /** 
  * Variable contain IP for using any fetch
  * @type {string}
@@ -103,42 +109,30 @@ const $btn_save = document.getElementById('btn_save');
  * @memberof Frontend/17-users
  */ 
 const $btn_update = document.getElementById('btn_update');
-/**
- * Check auth level for show name account and fill table
- * @callback DOMContentLoaded 
- * @memberof Frontend/17-users
- */
-document.addEventListener("DOMContentLoaded", () => {     
-  fetch(`${IP}/api/auth/allUsers`)            //Get all list of users
-    .then(res0 => { return res0.json() })
-    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
-    .then( res => {
-      if(res.hasOwnProperty('status'))
-        res['status'] && ( $sec_allusers.innerHTML= genUsers(res['items'], m) );    //Fill card with a toast for each user
-    });
 
-  fetch(`${IP}/api/auth/getPassport`)     //Get user information
-    .then(res0 => {return res0.json()})
-    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
-    .then(res => {
-      if(res.hasOwnProperty('status'))
-        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
-    });
-});
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * toggle authorized vehicles
- * @callback $inp_deps-click 
+ * @function toggleV
  * @memberof Frontend/17-users
+ * @param {Event} ev Mouse click event button
+ * @returns null
  */
-$inp_deps.addEventListener( 'click', ev => {
+const toggleV= (ev)=>{
   ev.target.classList.toggle('active');
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Capture new all user information and send to backend
- * @callback $frm_newuser-submit 
+ * @function createUser
  * @memberof Frontend/17-users
+ * @param {Event} ev Mouse click event form submit
+ * @returns null
  */
-$frm_newuser.addEventListener('submit', async ev => {
+const createUser= (ev)=>{
   ev.preventDefault();                                  //Disable page reload and show confirm modal
   const { $confirmed }= modalShow( Modal, 'sec_modal' , undefined , mBodyBTN2('Do you wanna create this new user?') );
 
@@ -165,14 +159,18 @@ $frm_newuser.addEventListener('submit', async ev => {
           setTimeout(() => { res.status && location.reload(); }, 1000);
         });
   });
+};
 
-});
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
- * Capture all user information and send to backend (user previously selected)
- * @callback $btn_update-click 
+ * apture all user information and send to backend (user previously selected)
+ * @function modifyUser
  * @memberof Frontend/17-users
+ * @param {Event} ev Mouse click event button
+ * @returns null
  */
-$btn_update.addEventListener('click', ev => {   //If user press update then...
+const modifyUser= (ev)=>{   //If user press update then...
   ev.preventDefault();                          //Disable page reload and show confirm modal
   const { $confirmed }= modalShow( Modal, 'sec_modal' , undefined , mBodyBTN2(`Do you wanna modified all information for user ${$inp_account.value.toUpperCase()}?`) );
 
@@ -200,13 +198,18 @@ $btn_update.addEventListener('click', ev => {   //If user press update then...
           setTimeout(() => { res.status && location.reload(); }, 2000);
         });
   });
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Check if use press any button into toast user
- * @callback $sec_allusers-click 
+ * @function watchCards
  * @memberof Frontend/17-users
+ * @param {Event} ev Mouse click event button press
+ * @returns null
  */
-$sec_allusers.addEventListener('click', ev => {
+const watchCards= (ev)=>{
   if(ev.target.type == "button" || ev.target.tagName == "I"){   //if object pressed is a button then...
     const type = (String(ev.target.id)).slice(3,4);   //get type button
     const id = (String(ev.target.id)).substr(4);      //get id button
@@ -251,4 +254,38 @@ $sec_allusers.addEventListener('click', ev => {
 
     };
   };
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/**
+ * Check auth level for show name account, fill table and load methods
+ * @function main
+ * @memberof Frontend/17-users
+ * @returns null
+ */
+const main= ()=> {  
+
+  fetch(`${IP}/api/auth/allUsers`)            //Get all list of users
+    .then(res0 => { return res0.json() })
+    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
+    .then( res => {
+      if(res.hasOwnProperty('status'))
+        res['status'] && ( $sec_allusers.innerHTML= genUsers(res['items'], m) );    //Fill card with a toast for each user
+    });
+
+  fetch(`${IP}/api/auth/getPassport`)     //Get user information
+    .then(res0 => {return res0.json()})
+    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
+    .then(res => {
+      if(res.hasOwnProperty('status'))
+        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
+    });
+
+  $inp_deps.onclick= (ev) => toggleV(ev);
+  $frm_newuser.onsubmit= (ev) => createUser(ev);
+  $btn_update.onclick= (ev) => modifyUser(ev);
+  $sec_allusers.onclick= (ev) => watchCards(ev);
+};
+
+window.onload= main;

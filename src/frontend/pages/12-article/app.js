@@ -26,7 +26,14 @@ import Modal from 'bootstrap.native/dist/components/modal-native.esm.js';
  * @property {Function} messWait show common message please wait
  * @memberof Frontend/12-article
  */
-const { genArticle , genEmpty , modalShow , mBodyBTN1 , mBodyBTN2 , messWait } = require('../../js/service.js');
+const { 
+  genArticle, 
+  genEmpty, 
+  modalShow, 
+  mBodyBTN1, 
+  mBodyBTN2, 
+  messWait 
+} = require('../../js/service.js');
 /** 
  * Variable contain IP for using any fetch
  * @type {string}
@@ -65,6 +72,8 @@ const $sec_image = document.querySelector('#sec_images img');
  */  
 const $lbl_accountn = document.getElementById('lbl_accountn');
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get information into form and send to backend
  * @function processData
@@ -94,7 +103,10 @@ const processData= ( ev, edit=false )=>{
         });
   });
   return null;
-}
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Delete article and send its ID to backend
  * @function deleteData
@@ -118,6 +130,9 @@ const deleteData= ( ev )=>{
   });
   return null;
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create random vehicle's values using faker library
  * @function genRandom
@@ -135,7 +150,10 @@ const genRandom= ( vin=false, random=0 ) =>{
   vin && ( document.getElementById('vin').value=  vehicle.vin() );  
   $sec_image.src= `https://loremflickr.com/320/240/car?random=${random}`;
   return null;
-}
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Search article using vin code and fill information in a form
  * @function showART
@@ -160,7 +178,10 @@ const showART= async ( edit=false )=> {
     }
   } catch (err) {   modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) );  };
   return null;
-}
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Fill card with empty inputs fields
  * @function showNEW
@@ -181,13 +202,17 @@ const showNEW= async () => {
     }
   } catch (err) {  modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) )  };
   return null;
-}
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Check URL and fill article's field depend if new (field's empty) or is exist (fill fields)
- * @callback DOMContentLoaded 
+ * @function main
  * @memberof Frontend/12-article
+ * @returns null
  */
-document.addEventListener("DOMContentLoaded", () => {   
+const main= ()=>{   
   switch ( urlParams.get('ed') ) {            //Check url param
     case 'nw':   showNEW();         break;    //If url content nw then show empty fields
     case 'rw':   showART( true );   break;    //If url content rw then show editable fields
@@ -201,4 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if(data.hasOwnProperty('status'))
         data['status'] && ( $lbl_accountn.innerText = data['item']['name'] );
     });
-});
+};
+
+window.onload= main;
+

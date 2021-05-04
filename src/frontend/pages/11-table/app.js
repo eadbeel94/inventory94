@@ -23,7 +23,12 @@ import Alert from 'bootstrap.native/dist/components/alert-native.esm.js';
  * @property {Function} mBodyBTN1 return string with a button for a Modal
  * @memberof Frontend/11-table
  */
-const { genTable , alertShow , modalShow , mBodyBTN1 } = require('../../js/service.js');
+const { 
+  genTable, 
+  alertShow, 
+  modalShow, 
+  mBodyBTN1
+} = require('../../js/service.js');
 /** 
  * Variable contain IP for using any fetch
  * @type {string}
@@ -122,6 +127,8 @@ var groupCount = 0;
  */ 
 const messAlert= `<strong>Filtering data!</strong> please wait<div class="spinner-border text-secondary ml-2" role="status" style="width: 1rem; height: 1rem;"><span class="sr-only">Loading...</span></div>`;
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Fill table with info from API
  * @function fillPage
@@ -130,7 +137,7 @@ const messAlert= `<strong>Filtering data!</strong> please wait<div class="spinne
  * @param {number} page page number
  * @returns null
  */
-const fillPage= ( type=0, page=1 )=>{                   //Fill table using fetch information from server
+const fillPage= ( type=0, page=1 )=>{                   
   let URL= `${IP}/api/table/row?ed=${urlParams.get('ed')}&page=${page}`;    
   if(type == 1){ URL= `${IP}/api/table/filter2?f1=${$inp_filter1.value}&f2=${$inp_filter2.value}&ed=${urlParams.get('ed')}&page=${page}` }
   if(type == 2){ URL=`${IP}/api/table/search1?s=${$inp_search.value}&ed=${urlParams.get('ed')}&page=${page}` }
@@ -155,28 +162,17 @@ const fillPage= ( type=0, page=1 )=>{                   //Fill table using fetch
     });
   return null;
 };
-/**
- * Check auth level for show name account and fill table
- * @callback DOMContentLoaded 
- * @memberof Frontend/11-table
- */
-document.addEventListener("DOMContentLoaded", () => { 
-  fetch(`${IP}/api/auth/getPassport`)     //Get user information
-    .then(res0 => {return res0.json()})
-    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
-    .then(res => {
-      if(res.hasOwnProperty('status'))
-        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
-    });
-  $inp_page.value= 1;                     //Init page integer value
-  fillPage( 0 , 1 );                      //Fill table
-});
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User selected an element from field filter 1 and filled filter 2 field
- * @callback $inp_filter1-change 
+ * @function fillSecFilter
  * @memberof Frontend/11-table
+ * @param {Event} ev mouse click event select information
+ * @returns null
  */
-$inp_filter1.addEventListener('change', ev =>{  
+const fillSecFilter= (ev)=>{
   fetch(`${IP}/api/table/filter1?a=${ev.target.value}&ed=${urlParams.get('ed')}`)
     .then(res0 => {return res0.json()})
     .catch(err => console.log(err) )
@@ -189,44 +185,63 @@ $inp_filter1.addEventListener('change', ev =>{
         $inp_filter2.innerHTML= `<option value="" selected>Choose...</option>${table_str}`;
       }
     });
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User press left button into filter area and fill table based on your search
- * @callback $frm_filter-submit 
+ * @function searchLeft
  * @memberof Frontend/11-table
+ * @param {Event} ev mouse click event button press
+ * @returns null
  */
-$frm_filter.addEventListener('submit', ev =>{  
+const searchLeft= (ev)=>{  
   ev.preventDefault();
   alertShow( Alert , 'spc_alert' , 2 * 1000 , messAlert );  //Show alert message
   $inp_page.value= 1;
   fillPage( 1 , 1 );                                //Fill table with articles
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User press right button into filter area and fill table based on your search
- * @callback $frm_search-submit 
+ * @function searchRight
  * @memberof Frontend/11-table
+ * @param {Event} ev mouse click event form 
+ * @returns null
  */
-$frm_search.addEventListener('submit', ev =>{ 
+const searchRight= (ev)=>{ 
   ev.preventDefault();
   alertShow( Alert , 'spc_alert' , 2 * 1000 , messAlert ); 
   $inp_page.value= 1;
   fillPage( 2 , 1 );                                //Fill table with articles
-});
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User press double click in any row, then open new tab with article's info selected
- * @callback $spc_tfill-dblclick 
+ * @function showArticle
  * @memberof Frontend/11-table
+ * @param {Event} ev mouse click event select element
+ * @returns null
  */
-$spc_tfill.addEventListener('dblclick', ev => {
-  if(ev.target.tagName == 'TD')
-    window.open(`/pages/article/?ed=${urlParams.get('ed')}&vin=${String(ev.path[1].children[1].innerHTML)}`, '_blank');
-});
+const showArticle= (ev)=>{
+  ev.target.tagName == 'TD' && window.open(`/pages/article/?ed=${urlParams.get('ed')}&vin=${String(ev.path[1].children[1].innerHTML)}`, '_blank');
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User press any button page, show respective information into table
- * @callback $sec_btnpage-click 
+ * @function setPage
  * @memberof Frontend/11-table
+ * @param {Event} ev mouse click event button pressed
+ * @returns null
  */
-$sec_btnpage.addEventListener('click', ev => {
+const setPage= (ev)=>{
   const maxCount = groupCount > 20 ? parseInt(groupCount/20) + 1 : 1;   //Generate max count
   let actCount = $inp_page.value;                  //get actual count
   let oldval = $inp_page.value;                   
@@ -249,13 +264,18 @@ $sec_btnpage.addEventListener('click', ev => {
     if( $btns[1].className.indexOf('active') >= 0 ){ type= 2 };
     fillPage( type, actCount);
   }
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * User fill into page number field, show respective information into table
- * @callback $inp_page-change 
+ * @function setInpPage
  * @memberof Frontend/11-table
+ * @param {Event} ev input key pressed in input field
+ * @returns null
  */
-$inp_page.addEventListener('change', () =>{
+ const setInpPage= ()=>{
   const maxCount = groupCount > 20 ? parseInt(groupCount/20) + 1 : 1;
   let actCount = $inp_page.value;                 //get actual count
 
@@ -267,4 +287,33 @@ $inp_page.addEventListener('change', () =>{
   if( $btns[0].className.indexOf('active') >= 0 ){ type= 1 };
   if( $btns[1].className.indexOf('active') >= 0 ){ type= 2 };
   fillPage( type, actCount);
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/**
+ * Check auth level for show name account, fill table and load methods
+ * @function main
+ * @memberof Frontend/11-table
+ * @returns null
+ */
+const main= ()=>{ 
+  fetch(`${IP}/api/auth/getPassport`)     //Get user information
+    .then(res0 => {return res0.json()})
+    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
+    .then(res => {
+      if(res.hasOwnProperty('status'))
+        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
+    });
+  $inp_page.value= 1;                     //Init page integer value
+  fillPage( 0 , 1 );                      //Fill table
+
+  $inp_filter1.onchange= (ev)=> fillSecFilter(ev);
+  $frm_filter.onsubmit= (ev)=> searchLeft(ev);
+  $frm_search.onsubmit= (ev)=> searchRight(ev);
+  $spc_tfill.ondblclick= (ev)=> showArticle(ev);
+  $sec_btnpage.onclick= (ev)=> setPage(ev);
+  $inp_page.onchange= setInpPage;
+};
+
+window.onload= main;

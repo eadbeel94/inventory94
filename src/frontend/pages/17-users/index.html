@@ -15,24 +15,24 @@
 
         <form class="card" id="frm_newuser">
           <section class="card-header text-center" style="font-size: 3vh; font-family: yanone1;">
-            Agregar usuario
+            Add user
           </section>
           <section class="card-body px-3 py-2" id="sec_formadd">
-            <label for="inp_account">Nombre de la cuenta</label>
+            <label for="inp_account">Account name</label>
             <div class="input-group mb-2">
               <input id="inp_account" class="form-control" type="text" placeholder="mech-eng1" required>
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
               </div>
             </div>
-            <label for="inp_fullname">Nombre completo</label>
+            <label for="inp_fullname">Full name</label>
             <div class="input-group mb-2">
               <input id="inp_fullname" class="form-control" type="text" placeholder="lic Valeriano" required>
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
             </div>
-            <label for="inp_phone">Telefono</label>
+            <label for="inp_phone">Phone</label>
             <div class="input-group mb-2">
               <input id="inp_phone" class="form-control" type="text" placeholder="52-844-123-4567" required>
               <div class="input-group-append">
@@ -47,7 +47,7 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
             </div>
-            <label for="inp_confirm">Confirmar password</label>
+            <label for="inp_confirm">Password confirm</label>
             <div class="input-group mb-2">
               <input id="inp_confirm" class="form-control" type="password" placeholder="52-844-123-4567" required>
               <!--<input id="inp_confirm" class="form-control" type="password" required pattern="(?=.*\d)(?=.*[a-z]).{6,}">-->
@@ -55,7 +55,7 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
               </div>
             </div>
-            <label for="inp_level">Nivel del usuario</label>
+            <label for="inp_level">User level</label>
             <div class="input-group mb-2">
               <select id="inp_level" class="form-control" required>
                 <option value="">Elegir... </option>
@@ -68,20 +68,20 @@
                 <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
               </div>
             </div>
-            <label for="inp_deps">Vehiculos autorizados</label>
+            <label for="inp_deps">Authorized vehicles</label>
             <div id="inp_deps" class="d-flex flex-wrap justify-content-center">
-              <button type="button" class="btn btn-outline-primary m-1" >Electricos</button>
-              <button type="button" class="btn btn-outline-primary m-1" >Hibrido</button>
-              <button type="button" class="btn btn-outline-primary m-1" >Gasolina</button>
+              <button type="button" class="btn btn-outline-primary m-1" >Electrics</button>
+              <button type="button" class="btn btn-outline-primary m-1" >Hybrids</button>
+              <button type="button" class="btn btn-outline-primary m-1" >Gas</button>
               <button type="button" class="btn btn-outline-primary m-1" >Diesel</button>
             </div>
           </section>
           <section class="card-footer">
             <button type="submit" id="btn_save" class="btn btn-info btn-block mt-0">
-              Guardar <i class="fas fa-save pl-1"></i>
+              Save <i class="fas fa-save pl-1"></i>
             </button>
             <button type="button" id="btn_update" class="btn btn-info btn-block d-none mt-0">
-              Actualizar <i class="fas fa-redo pl-1"></i>
+              Update <i class="fas fa-redo pl-1"></i>
             </button>
           </section>
 
@@ -90,7 +90,7 @@
       </div> 
       <div class="col-8 animate__animated animate__slideInUp">
         <div class="card" >
-          <section class="card-header text-center" style="font-size: 3vh; font-family: yanone1;">Todos los usuario</section>
+          <section class="card-header text-center" style="font-size: 3vh; font-family: yanone1;">All users</section>
           <section class="card-body px-3 py-2" ><div class="row" id="sec_allusers"></div></section>
         </div>
       </div>

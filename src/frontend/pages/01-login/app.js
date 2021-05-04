@@ -22,7 +22,11 @@ import Alert from 'bootstrap.native/dist/components/alert-native.esm.js';
  * @property {Function} mBodyBTN1 return string with a button for a Modal
  * @memberof Frontend/01-login
  */
-const { alertShow , modalShow , mBodyBTN1 } = require('../../js/service.js');
+const { 
+  alertShow, 
+  modalShow, 
+  mBodyBTN1 
+} = require('../../js/service.js');
 /** 
  * HTML input where typing username
  * @type {HTMLElement}
@@ -42,12 +46,16 @@ const inp_pass = document.getElementById('inp_pass');
  * @todo I need to delete in production
  */  
 const IP= process.env.NODE_ENV === 'production' ? '' : `http://localhost:3300`;
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Check last error on passport authentification process throw fetch and show return information in alert card
- * @callback DOMContentLoaded 
+ * @function main
  * @memberof Frontend/01-login
+ * @returns null
  */
-document.addEventListener("DOMContentLoaded", () => {
+const main= ()=>{
   fetch(`${IP}/api/auth/status`)                              
     .then(res0 => {return res0.json()})
     .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
@@ -61,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
         If you wanna see all features you can access with <strong class="text-info">admin</strong> like user and password 
         `) );
     });
-});
+};
+
+window.onload= main;
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * autocomplete invite pass field
  * @callback inp_name-keyup 
@@ -71,3 +83,5 @@ inp_name.addEventListener('keyup', () =>{                     //autocomplete inv
   if((String(inp_name.value)).toLowerCase() == 'guest')
     inp_pass.value = 'guest';
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */

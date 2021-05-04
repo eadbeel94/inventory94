@@ -6,6 +6,9 @@
  * @memberof Frontend/service 
  */
 const messWait= `Please wait <br/> <div class="spinner-border text-info mt-3" role="status"><span class="sr-only">Loading...</span></div>`;
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html table (read only fields)
  * @function genTable
@@ -33,6 +36,9 @@ const genTable= ( list=[], offset=0 ) => {
   };
   return table_str;
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html table (input editable fields)
  * @function genModtable
@@ -60,6 +66,9 @@ const genModtable= ( list=[], offset=0 ) => {
   };
   return table_str;
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html filled form 
  * @function genArticle
@@ -96,6 +105,9 @@ const genArticle= ( list=[], edit=false ) => {
   };
   return form_str;
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html empty form
  * @function genEmpty
@@ -125,6 +137,9 @@ const genEmpty= ( list=[] ) => {
   };
   return form_str;
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html card Bootstrap-alert
  * @function alertShow
@@ -148,6 +163,9 @@ const alertShow= ( Alert, id="" , time= 1000 , mess="" ) => {        //Create a 
   setTimeout(() => native.close() , time);
   return { alert , native };
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html Bootstrap-Modal
  * @function modalShow
@@ -172,6 +190,9 @@ const modalShow= ( Modal , id="" , type=1 , body="" ) =>{            //Create a 
   const $confirmed= modal.querySelector('.confirmed');
   return { native , modal , $confirmed };
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html Modal body with a button
  * @function mBodyBTN1
@@ -194,6 +215,9 @@ const mBodyBTN1= ( message="" )=>{
       </div>
     </div>`;
 }
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html Modal body with 2 buttons
  * @function mBodyBTN2
@@ -219,6 +243,9 @@ const mBodyBTN2= ( message="" , textL= "YES" , textR= "CANCEL" )=>{
       </div>
     </div>`;
 }
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Create a Html card toast from user array
  * @function genUsers
@@ -267,5 +294,7 @@ const genUsers= ( users=[], moment ) => {
     }).join('');
   }
 };
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
 module.exports= { genTable, genModtable, genArticle, genEmpty, alertShow, modalShow, mBodyBTN1, mBodyBTN2 , messWait, genUsers };

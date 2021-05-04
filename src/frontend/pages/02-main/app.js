@@ -1,20 +1,13 @@
 /** @namespace Frontend/02-welcome */
 
 import './style.css';
-//import 'bootstrap.native/dist/bootstrap-native.esm.js';
-//import Dropdown from 'bootstrap.native/dist/components/dropdown-native.esm.js';
+
 /** 
  * Call Modal class from boostrap native
  * @const {class} Modal
  * @memberof Frontend/02-welcome
  */
 import Modal from 'bootstrap.native/dist/components/modal-native.esm.js';
-/** 
- * Call Alert class from boostrap native
- * @const {class} Alert
- * @memberof Frontend/02-welcome
- */
-import Alert from 'bootstrap.native/dist/components/alert-native.esm.js';
 /**
  * Call local methods from service
  * @typedef {object} service
@@ -23,7 +16,10 @@ import Alert from 'bootstrap.native/dist/components/alert-native.esm.js';
  * @property {Function} mBodyBTN1 return string with a button for a Modal
  * @memberof Frontend/02-welcome
  */
-const { alertShow , modalShow , mBodyBTN1 } = require('../../js/service.js');
+const { 
+  modalShow, 
+  mBodyBTN1 
+} = require('../../js/service.js');
 /** 
  * Variable contain IP for using any fetch
  * @type {string}
@@ -43,12 +39,16 @@ const $btns = document.querySelectorAll('#sec_bodyM1 button');
  * @memberof Frontend/02-welcome
  */  
 const $lbl_accountn = document.getElementById('lbl_accountn');
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Check auth level for unlock button/windows that user has access
- * @callback DOMContentLoaded 
+ * @function main
  * @memberof Frontend/02-welcome
+ * @returns null
  */
-document.addEventListener("DOMContentLoaded", () => {         
+const main= ()=> {         
   fetch(`${IP}/api/auth/getPassport`)                 
     .then(res => {return res.json()} )
     .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )  
@@ -63,4 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $btns[4].disabled = !(user['level'] >= 9);
       }
     });
-});
+};
+
+window.onload= main;
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */

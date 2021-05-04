@@ -14,16 +14,19 @@ import XLSX from 'xlsx';
  */
 import Modal from 'bootstrap.native/dist/components/modal-native.esm.js';
 /**
- * Call local methods from service
- * @typedef {object} service
- * @property {Function} genModtable fill HMTL Table with inputs for each cell
  * @property {Function} modalShow show an Bootstrap modal in specify area
  * @property {Function} mBodyBTN1 return string with a button for a Modal
  * @property {Function} mBodyBTN2 return string with two button for a Modal
  * @property {Function} messWait show common message please wait
  * @memberof Frontend/16-options
  */
-const { genModtable , modalShow , mBodyBTN1 , mBodyBTN2 , messWait  } = require('../../js/service.js');
+const { 
+  genModtable, 
+  modalShow, 
+  mBodyBTN1, 
+  mBodyBTN2, 
+  messWait  
+} = require('../../js/service.js');
 /** 
  * Variable contain IP for using any fetch
  * @type {string}
@@ -61,42 +64,45 @@ const $btn_download = document.getElementById('btn_download');
  * @memberof Frontend/16-options
  */  
 const $lbl_accountn = document.getElementById('lbl_accountn');
-/**
- * Check auth level for show name account and fill table
- * @callback DOMContentLoaded 
- * @memberof Frontend/16-options
- */
-document.addEventListener("DOMContentLoaded", () => {
-  fetch(`${IP}/api/auth/getPassport`)     //Get user information
-    .then(res0 => {return res0.json()})
-    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
-    .then(res => {
-      if(res.hasOwnProperty('status'))
-        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
-    });
-});
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Change background color when a file are in drop area
- * @callback sec_dropfile-dragover
+ * @function changeBKcolor1
  * @memberof Frontend/16-options
+ * @param {Event} ev Event file touch zone
+ * @returns null
  */
-$sec_dropfile.addEventListener('dragover', ev => {
-  ev.preventDefault(); ev.path[0].style.backgroundColor = "gray"; ev.path[1].style.backgroundColor = "gray"; 
-});
+const changeBKcolor1= (ev)=>{
+  ev.preventDefault(); 
+  ev.path[0].style.backgroundColor = "gray"; 
+  ev.path[1].style.backgroundColor = "gray"; 
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Change background color when a file are in drop area
- * @callback sec_dropfile-dragleave
+ * @function changeBKcolor2
  * @memberof Frontend/16-options
+ * @param {Event} ev Event file touch zone
+ * @returns null
  */
-$sec_dropfile.addEventListener('dragleave', ev => {
-  ev.path[0].style.backgroundColor = "rgb(43,62,81)"; ev.path[1].style.backgroundColor = "rgb(43,62,81)"; 
-});
+ const changeBKcolor2= (ev)=>{
+  ev.path[0].style.backgroundColor = "rgb(43,62,81)"; 
+  ev.path[1].style.backgroundColor = "rgb(43,62,81)"; 
+};
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Release excel file in drop area, then fill table with sheet information
- * @callback sec_dropfile-drop
+ * @function dropFile
  * @memberof Frontend/16-options
+ * @param {Event} ev Event file touch zone
+ * @returns null
  */
-$sec_dropfile.addEventListener('drop', ev => {
+const dropFile= (ev)=>{
   ev.preventDefault();
 
   if(ev.dataTransfer.items.length == 1){
@@ -111,18 +117,23 @@ $sec_dropfile.addEventListener('drop', ev => {
             const ws= wb.Sheets[wb.SheetNames[0]];
             const info= XLSX.utils.sheet_to_json(ws);
             $spc_tfill.innerHTML= genModtable(info,1);
-          })
+          });
 
-      }
-    }
-  }
-});
+      };
+    };
+  };
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Download an excel with all information in article's database
- * @callback $btn_download-click
+ * @function downFile
  * @memberof Frontend/16-options
+ * @param {Event} ev Event mouse click button
+ * @returns null
  */
-$btn_download.addEventListener('click',  () => {      //If user press download button
+const downFile= (ev)=>{
   fetch(`${IP}/api/options/downallTable`)         //Get all articles frrom server
     .then( res0 => {return res0.json()} )
     .catch( err => console.log(err) )
@@ -135,13 +146,18 @@ $btn_download.addEventListener('click',  () => {      //If user press download b
         XLSX.writeFile(wb, `${rand}.xlsx`);
       };
     });
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Process all information in table and send to backend
- * @callback $frm_impTable-submit
+ * @function sendTable
  * @memberof Frontend/16-options
+ * @param {Event} ev Event mouse click button
+ * @returns null
  */
-$frm_impTable.addEventListener('submit', ev => {
+const sendTable= (ev)=>{
   ev.preventDefault();                      //Cancel reload page and show confirmed modal
   const { $confirmed }= modalShow( Modal, 'sec_modal' , undefined , mBodyBTN2('Do you wanna save all these information?') );
 
@@ -178,4 +194,30 @@ $frm_impTable.addEventListener('submit', ev => {
             modalShow( Modal, 'sec_modal' , undefined , mBodyBTN1(`Changes saved successfully`) );
         });
   });
-});
+};
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/**
+ * Check auth level for show name account and load methods
+ * @function main
+ * @memberof Frontend/16-options
+ * @returns null
+ */
+const main= ()=> {
+  fetch(`${IP}/api/auth/getPassport`)     //Get user information
+    .then(res0 => {return res0.json()})
+    .catch(err => modalShow( Modal, "sec_modal", 2, mBodyBTN1(err) ) )
+    .then(res => {
+      if(res.hasOwnProperty('status'))
+        res['status'] && ( $lbl_accountn.innerText = res['item']['name'] );  //Show account name in label user
+    });
+    
+  $sec_dropfile.ondragover= (ev)=> changeBKcolor1(ev);
+  $sec_dropfile.ondragleave= (ev)=> changeBKcolor2(ev);
+  $sec_dropfile.ondrop= (ev)=> dropFile(ev);
+  $btn_download.onclick= (ev)=> downFile(ev);
+  $frm_impTable.onsubmit= (ev)=> sendTable(ev);
+};
+
+window.onload= main;
