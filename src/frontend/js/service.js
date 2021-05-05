@@ -83,7 +83,7 @@ const genArticle= ( list=[], edit=false ) => {
     for (const i in list) {
       const onlyread= ( i== 'vin' || !edit ) ? 'disabled' : '';
       form_str+= `
-        <div class="form-group col-lg-5 col-10 mx-auto">
+        <div class="form-group col-lg-5 col-sm-10 col-12 mx-auto">
           <label>${i}</label>
           <input id="${i}" type="text" class="form-control" value="${list[i]}" ${onlyread}>
         </div>`;
@@ -258,7 +258,7 @@ const genUsers= ( users=[], moment ) => {
   if(users.length > 0){
     return users.map( (r,i) => {      
       return `
-        <div id="${r['_id']}" class="col-6 p-1">
+        <div id="${r['_id']}" class="col-sm-6 p-1">
           <div class="toast border-primary h-100">
             <div class="toast-header" >
               <span class="badge badge-info">${i + 1}</span> 

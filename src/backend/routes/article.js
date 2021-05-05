@@ -2,6 +2,9 @@
 
 const router = require("express").Router();                         //Call dependencies needed
 const { Row } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get all keys from DB collection
  *
@@ -23,6 +26,9 @@ router.get('/allfields', async (req,res)=>{
   } catch (err) { console.log(err); status= false; };
   res.json({ status, items });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get article using vin value
  *
@@ -45,6 +51,9 @@ router.get('/find',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status, item });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Add article in database
  *
@@ -67,6 +76,9 @@ router.post('/add',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Edit article in database
  *
@@ -95,6 +107,9 @@ router.post('/edit',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Delete an article in database
  *
@@ -116,5 +131,7 @@ router.delete('/delete',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
 module.exports = router;

@@ -56,7 +56,7 @@ module.exports= {
     publicPath: '/'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'src/public'), hot: false, inline: false,
+    contentBase: path.join(__dirname, 'src/public'), /*hot: false, inline: false,*/
   },
   module : {
     rules: [

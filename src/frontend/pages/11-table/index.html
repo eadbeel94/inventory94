@@ -16,10 +16,10 @@
         <div class="col-xl-6 col-12 mt-3 mb-2">
           <form id="frm_filter">
             <div class="form-row">
-              <div class="col-2 text-right p-2">
+              <div class="col-sm-2 col-2 text-right p-2">
                 <i class="fas fa-filter pr-2"></i> Filter by:
               </div>
-              <div class="col-4">
+              <div class="col-sm-4 col-5">
                 <label class="mr-sm-2 sr-only" for="inp_filter1">Filter 1</label>
                 <select class="custom-select mr-sm-2" id="inp_filter1" required>
                   <option value="" selected>choose...</option>
@@ -32,13 +32,13 @@
                   <option value="color">Color</option>
                 </select>
               </div>
-              <div class="col-4">
+              <div class="col-sm-4 col-5">
                 <label class="mr-sm-2 sr-only" for="inp_filter2">Filter 2</label>
                 <select class="custom-select mr-sm-2" id="inp_filter2" required>
                   <option value="" selected>Choose...</option>
                 </select>
               </div>
-              <div class="col-2">
+              <div class="col-sm-2 offset-sm-0 offset-2 col-8">
                 <button type="submit" class="btn btn-outline-info btn-block">Apply</button>
               </div>
             </div>
@@ -49,13 +49,13 @@
           <form id="frm_search">
             <div class="form-row">
 
-              <div class="col-3 p-2 text-right">
+              <div class="col-sm-3 col-4 p-2 text-right">
                 <i class="fas fa-search pr-2"></i> Search by id: 
               </div>
-              <div class="col-7">
+              <div class="col-sm-7 col-8">
                 <input type="search" class="form-control" placeholder="Insert your id" required>
               </div>
-              <div class="col">
+              <div class="col-sm-2 offset-sm-0 offset-2 col-8">
                 <button type="submit" class="btn btn-outline-info btn-block">Apply</button>
               </div>
 
@@ -102,10 +102,10 @@
     </div>
   </section>
   <!--Buttons section-->
-  <section id="sec_btnpage" class="text-center fixed-bottom" role="group" style="margin-bottom: 60px;">
+  <section id="sec_btnpage" class="text-center" role="group">
     <div class="row mx-0">
 
-      <div class="col-4 offset-4">
+      <div class="col-md-4 offset-md-4">
         <div class="btn-group"  aria-label="Basic example">
           <span style="line-height: 2.3;" class="text-primary">PAG: </span>
           <button id="btn_minus" type="button" class="form-control btn btn-outline-primary ml-2" style="width: 40px;">
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 mt-2">
         <div>
           <span>Total: </span>
           <span id="lbl_count"> </span>

@@ -3,6 +3,8 @@
 const router = require("express").Router();                         //Call dependencies needed
 const { Row } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get several JSONs from client and save into DB articles' collection.
  *
@@ -24,6 +26,9 @@ router.post('/upTable',async (req,res)=>{
   } catch (err) { mess= err.toString(); status= false; };
   res.json({ status , mess });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get several JSONs from DB and send to client
  *
@@ -49,5 +54,7 @@ router.get('/downallTable',async (req,res)=>{
   } catch (err) {console.log( err ); status= false; };
   res.json({ status, items });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
 module.exports = router;

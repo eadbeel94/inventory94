@@ -22,3 +22,12 @@ div.toast div.toast-body{
 #inp_deps .btn{
   width: 45%;
 }
+
+@media (max-width: 768px) {
+  #sec_bodyU1{
+    padding: 0.25rem;
+  }
+  .col-sm-4, .col-sm-8{
+    padding: 0.1rem;
+  }
+}

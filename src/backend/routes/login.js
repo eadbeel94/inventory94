@@ -6,6 +6,8 @@ const bcrypt = require('bcrypt');
 const m = require('dayjs');
 const { User } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get user logged credential values
  *
@@ -26,6 +28,9 @@ router.get('/api/auth/getPassport',async (req,res)=>{
   } catch (err) { console.log(err); status = false; };
   res.json({ status, item });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Passport authentification
  *
@@ -39,6 +44,9 @@ router.post("/api/auth", passport.authenticate("local", {             //Si el us
   failureRedirect: `/`,
   failureFlash: true
 }));
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get all users into user collection
  *
@@ -61,6 +69,9 @@ router.get('/api/auth/allUsers',async (req,res)=>{
   } catch (err) { console.log(err); status= false; };
   res.json({ status, items });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Add user into DB user collection
  *
@@ -95,6 +106,9 @@ router.post('/api/auth/addUser',async (req,res)=>{
   } catch (err) { console.log(err); status= false; message= "Error from server"; };
   res.json({ status, message });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get just a user from DB
  *
@@ -119,6 +133,9 @@ router.get('/api/auth/getanUser',async (req,res)=>{
   } catch (err) { console.log(err); status= false; };
   res.json({ status, item });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Overwrite user information using you id
  *
@@ -161,6 +178,9 @@ router.post('/api/auth/editanUser',async (req,res)=>{
   } catch (err) { console.log(err); status= false; message= "Error from server"; };
   res.json({ status, message });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Delete user into DB user collection
  *
@@ -186,6 +206,9 @@ router.delete('/api/auth/delanUser',async (req,res)=>{
   } catch (err) { console.log(err); status= false; message= "Error from server"; };
   res.json({ status, message });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Loggout user using passport method and redirect main page
  *
@@ -197,6 +220,9 @@ router.get("/api/auth/logout", (req, res) => {
   req.logout();                                                     //Utilizo el motodo de passport para deslogear
   res.redirect("/");                                          //Se redirecciona la pagina a sign in
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Manage redirect method depend from any page
  *
@@ -216,6 +242,9 @@ router.get('/pages/redirect',async (req,res)=>{
   }else
     res.redirect('/');
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Show client status loggin
  *
@@ -240,5 +269,7 @@ router.get('/api/auth/status',async (req,res)=>{
   } catch (err) { console.log(err); status= false; };
   res.json({ status, message , once });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
 module.exports = router;

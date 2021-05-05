@@ -47,3 +47,31 @@
 #sec_impTable td input:disabled{
   border-radius: 0; color: white; opacity: 0.4;
 }
+
+#sec_bodyO3 .card-footer button{
+  width: 25%;
+}
+
+@media (max-width: 768px) {
+  #sec_bodyO2{
+    padding: 0;
+  }
+  #sec_bodyO2 > div > div{
+    padding: 0.1rem;
+  }
+  #sec_bodyO2 .card-body p{
+    font-size: 14px;
+  }
+  #sec_bodyO2 .card-body i{
+    font-size: 50px !important;
+  }
+  #sec_bodyO3{
+    padding: 0;
+  }
+  #sec_bodyO3 > div > div{
+    padding: 0;
+  }
+  #sec_bodyO3 .card-footer button{
+    width: unset;
+  }
+}

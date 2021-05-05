@@ -1,12 +1,43 @@
 #sec_bodyA1 label{
-  font-family: balo1; padding-top: 0.5rem; font-size: 22px; text-transform: capitalize; margin: 0; color: var(--primary);
+  font-family: balo1; 
+  padding-top: 0.5rem; 
+  font-size: 22px; 
+  text-transform: capitalize; 
+  margin: 0; 
+  color: var(--primary);
 }
 #sec_bodyA1 input:disabled{
-  font-family: poppins1; background-color: #868e96; color: white; padding-left: 1rem; font-size: 20px;
+  font-family: poppins1; 
+  background-color: #868e96; 
+  color: white; 
+  padding-left: 1rem; 
+  font-size: 20px;
 }
 #sec_bodyA1 input{
-  font-family: poppins1; color: #868e96; padding-left: 1rem; font-size: 20px;
+  font-family: poppins1; 
+  color: #868e96; 
+  padding-left: 1rem; 
+  font-size: 20px;
 }
 #sec_bodyA1 button{
-  font-size: 18px; width: 33%; overflow: hidden;
+  font-size: 18px; 
+  width: 33%; 
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #sec_bodyA1 label{
+    font-size: 18px;
+  }
+  #sec_bodyA1 input:disabled{
+    font-size: 15px;
+  }
+  #sec_bodyA1 input{
+    font-size: 15px;
+  }
+  #sec_bodyA1 button{
+    font-size: 15px; 
+    width: 100%; 
+    margin: 0.1rem;
+  }
 }

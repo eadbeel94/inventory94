@@ -2,6 +2,9 @@
 
 const router = require("express").Router();                         //Call dependencies needed
 const { Row } = require('../config/schema.js');  //Call schemas for CRUD about table product, category and client
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get 20 articles.
  *
@@ -32,6 +35,9 @@ router.get('/row',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status, items , count });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get all types same filter.
  *
@@ -58,6 +64,9 @@ router.get('/filter1',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status , items });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get all articles based filter criterion.
  *
@@ -89,6 +98,9 @@ router.get('/filter2',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status , items , count });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /**
  * Get all articles based filter criterion.
  *
@@ -128,5 +140,7 @@ router.get('/search1',async (req,res)=>{
   } catch (err) {console.log(err); status= false; };
   res.json({ status , items , count });
 });
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
 
 module.exports = router;

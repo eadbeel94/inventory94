@@ -4,7 +4,7 @@ const session= require('express-session');            //Use express-session fear
 const flash= require('connect-flash');                //For get a variable between routes and after erase it
 const passport= require('passport');                  //Use passport local authentification methods
 const cors= require('cors');                          //Send HTTP request between diferents servers
-const path= require('path');                          //Manage route methods
+const { join }= require('path');                          //Manage route methods
 
 //------------------------------------- Inicialize -------------------------------------//        
 process.env.NODE_ENV !== 'production' && require('dotenv').config();    //Call .env just when development mode
@@ -35,11 +35,11 @@ app.use('/api/table', require('./routes/table.js'));      //Call table rest-api 
 app.use('/api/options', require('./routes/options.js'));  //Call options rest-api methods
 
 //------------------------------------- Static files -------------------------------------//
-app.use(express.static(path.join(__dirname, '../public/')));   //Show all files into public folder
+app.use(express.static( join(__dirname, '../public/') ));   //Show all files into public folder
 
 //------------------------------------- Error manage -------------------------------------//
 app.use(function(req, res, next) {                             //If user access to route not declare, this is redirect with error message
-  res.status(404).sendFile( path.join(__dirname, '../public/404.html')) 
+  res.status(404).sendFile( join(__dirname, '../public/404.html') ) 
 });
 
 //------------------------------------- Start server -------------------------------------//

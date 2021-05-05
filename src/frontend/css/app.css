@@ -57,13 +57,31 @@
     background-color: rgb(70,100,134);
   }
   #sec_filter div.form-row div.text-right{
-    font-size: 14px; font-family: balo1; line-height: 2;
+    font-size: 14px; font-family: balo1;
   }
   #sec_filter div.form-row select, #sec_filter div.form-row input{
     font-family: poppins1; font-size: 15px;
   }
   #sec_filter div.form-row button{
     font-size: 14px; font-family: balo1; padding-top: 0.75rem; line-height: 1; height: calc(1.5em + 0.75rem + 2px);
+  }
+
+  #frm_filter .form-row .col-sm-2, #frm_search .form-row .col-sm-3{
+    height: 45px; overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    #sec_filter{
+      padding-inline: 0.25rem;
+    }
+    #sec_table{
+      padding-inline: 0.25rem;
+    }
+  }
+
+  #sec_btnpage{
+    padding-top: 1rem;
+    margin-bottom: 7rem;
   }
 
   #sec_table table{
@@ -111,32 +129,7 @@
   .select-editable select:focus, .select-editable input:focus {
     outline:none;
   }
-/*
-  #sec_bodyA2 label{
-    font-family: balo1; padding-top: 0.5rem; font-size: 1.9vh;
-  }
-  #sec_bodyA2 input{
-    font-family: poppins1; padding-left: 1rem; font-size: 1.9vh; height: calc(100vh * 0.025 + 15px);
-  }
-  #sec_bodyA2 textarea{
-    font-family: poppins1; padding-left: 1rem; font-size: 1.9vh;
-  }
-  #sec_bodyA2 option{
-    text-transform: uppercase;
-  }
-  #sec_bodyA2 div.btn-group button{
-    font-size: 2.8vh; width: 400px;
-  }
-  #sec_bodyA2 #lbl_images{
-    font-size: 2.25vh; padding-top: 0.75rem;
-  }
-  #sec_bodyA2 #lbl_images::after{
-    padding-top: 0.75rem;
-  }
-  h3{
-    font-size: 1.55rem;
-  }
-*/
+
 
 .modalT1 .modal-title, .modalT2 .modal-title{
   font-family: balo1; font-size: 19px; line-height: 1;
